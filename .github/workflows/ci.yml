@@ -3,10 +3,10 @@ name: CI
 on:
   pull_request:
     branches:
-      - master
+      - develop
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   ci:
@@ -34,8 +34,9 @@ jobs:
         run: yarn build
 
       - name: Deploy
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: ${{ github.ref == 'refs/heads/develop' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: master
           publish_dir: ./out
