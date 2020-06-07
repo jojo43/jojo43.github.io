@@ -1,16 +1,13 @@
 name: CI
 
 on:
-  pull_request:
-    branches:
-      - develop
   push:
     branches:
       - develop
 
 jobs:
-  ci:
-    name: CI
+  deploy:
+    name: Deploy
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -34,7 +31,6 @@ jobs:
         run: yarn build
 
       - name: Deploy
-        if: ${{ github.ref == 'refs/heads/develop' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
