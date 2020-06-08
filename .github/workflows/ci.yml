@@ -9,8 +9,8 @@ on:
       - develop
 
 jobs:
-  check:
-    name: Check
+  CI:
+    name: CI
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -20,12 +20,14 @@ jobs:
         with:
           node-version: 10.x
 
-      - name: Cache
-        uses: actions/cache@v1
+      - name: Cache yarn
+        uses: actions/cache@v2
         with:
-          path: ~/.cache/yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
+          path: |
+            ~/.cache/yarn
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-nextjs-
 
       - name: Install
         run: yarn --frozen-lockfile
@@ -36,34 +38,12 @@ jobs:
       - name: Lint
         run: yarn lint
 
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-18.04
-    needs: check
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 10.x
-
-      - name: Cache
-        uses: actions/cache@v1
-        with:
-          path: ~/.cache/yarn
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-yarn-
-
-      - name: Install
-        run: yarn --frozen-lockfile
-
       - name: Build
         run: yarn build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: master
