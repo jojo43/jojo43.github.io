@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 10.x
 
-      - name: Cache yarn
+      - name: Cache
         uses: actions/cache@v2
         with:
           path: |
