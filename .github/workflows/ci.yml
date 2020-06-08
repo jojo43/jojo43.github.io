@@ -1,14 +1,46 @@
 name: CI
 
 on:
+  pull_request:
+    branches:
+      - develop
   push:
     branches:
       - develop
 
 jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: Cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
+
+      - name: Install
+        run: yarn --frozen-lockfile
+
+      - name: Type check
+        run: yarn type
+
+      - name: Lint
+        run: yarn lint
+
   deploy:
     name: Deploy
     runs-on: ubuntu-18.04
+    needs: check
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
     steps:
       - uses: actions/checkout@v2
 
