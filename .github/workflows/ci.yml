@@ -9,7 +9,7 @@ on:
       - develop
 
 jobs:
-  CI:
+  ci:
     name: CI
     runs-on: ubuntu-18.04
     steps:
