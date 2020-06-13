@@ -3,7 +3,6 @@ import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { CssBaseline } from '@material-ui/core'
 
-import { TITLE } from '~/settings'
 import { ThemeProvider } from '~/utils/hooks'
 
 export default function App(props: AppProps) {
@@ -20,7 +19,8 @@ export default function App(props: AppProps) {
   return (
     <>
       <Head>
-        <title>{TITLE}</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <ThemeProvider>
         <CssBaseline />
