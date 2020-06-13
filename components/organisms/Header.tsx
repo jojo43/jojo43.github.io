@@ -1,13 +1,19 @@
 import React from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { AppBar, Button, Divider, Toolbar, styled } from '@material-ui/core'
+import {
+  AppBar,
+  Button,
+  Divider,
+  IconButton,
+  Toolbar,
+  styled,
+} from '@material-ui/core'
+import { GitHub as GitHubIcon, Home as HomeIcon } from '@material-ui/icons'
 
-import { DarkThemeSwitch, HomeButton, Spacer } from '~/components/atoms'
+import { DarkThemeSwitch, Spacer } from '~/components/atoms'
 import { ThemeContext } from '~/utils/hooks'
 
 export function Header() {
-  const router = useRouter()
   const { theme } = React.useContext(ThemeContext)
 
   const StyledDivider = styled(Divider)({
@@ -17,12 +23,28 @@ export function Header() {
   return (
     <AppBar color="inherit">
       <Toolbar>
-        <HomeButton onClick={() => router.push('/')} />
+        <Link href="/">
+          <IconButton>
+            <HomeIcon />
+          </IconButton>
+        </Link>
         <StyledDivider flexItem orientation="vertical" />
-        <Link href="/style">
-          <Button>Style</Button>
+        <Link href="/about">
+          <Button>About</Button>
+        </Link>
+        <Link href="/archives">
+          <Button>Archives</Button>
         </Link>
         <Spacer />
+        <a
+          href="https://github.com/jojo43"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <IconButton>
+            <GitHubIcon />
+          </IconButton>
+        </a>
         <DarkThemeSwitch />
       </Toolbar>
     </AppBar>
