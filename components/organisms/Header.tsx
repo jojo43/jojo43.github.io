@@ -37,7 +37,7 @@ export function Header() {
         </Link>
         <Spacer />
         <a
-          href="https://github.com/jojo43"
+          href="https://github.com/jojo43/jojo43.github.io"
           rel="noopener noreferrer"
           target="_blank"
         >
