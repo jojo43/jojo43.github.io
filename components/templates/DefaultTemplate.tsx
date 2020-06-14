@@ -15,7 +15,7 @@ export function DefaultTemplate({ children, title }: Props) {
     <>
       <Head>
         <title>
-          {title ? `${title} | ` : null}
+          {title && `${title} | `}
           {TITLE}
         </title>
       </Head>
