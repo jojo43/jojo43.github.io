@@ -1,4 +1,5 @@
 import React from 'react'
+import { ThemeProvider as ScThemeProvider } from 'styled-components'
 import {
   Theme as MuiTheme,
   ThemeOptions,
@@ -49,9 +50,11 @@ export function ThemeProvider({ children }: Props) {
 
   return (
     <MuiThemeProvider theme={theme}>
-      <ThemeContext.Provider value={{ theme, toggleDark }}>
-        {children}
-      </ThemeContext.Provider>
+      <ScThemeProvider theme={theme}>
+        <ThemeContext.Provider value={{ theme, toggleDark }}>
+          {children}
+        </ThemeContext.Provider>
+      </ScThemeProvider>
     </MuiThemeProvider>
   )
 }

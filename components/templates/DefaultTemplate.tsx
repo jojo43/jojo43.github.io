@@ -21,8 +21,8 @@ export function DefaultTemplate({ children, title }: Props) {
       </Head>
       <Header />
       <Toolbar />
-      <Container>
-        <Box my={2}>{children}</Box>
+      <Container maxWidth="md">
+        <Box my={3}>{children}</Box>
       </Container>
     </>
   )
