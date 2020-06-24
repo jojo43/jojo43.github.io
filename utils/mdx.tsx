@@ -11,7 +11,7 @@ import {
   ListItem,
   Paragraph,
 } from '~/components/atoms'
-import { DefaultTemplate } from '~/components/templates'
+import { BlogTemplate } from '~/components/templates'
 
 export const components: Components = {
   /* eslint-disable react/jsx-props-no-spreading */
@@ -30,6 +30,6 @@ export const components: Components = {
   p: (props) => <Paragraph {...props} />,
   pre: (props) => <div {...props} />,
 
-  wrapper: (props) => <DefaultTemplate {...props} />,
+  wrapper: (props) => <BlogTemplate {...props} />,
   /* eslint-enable */
 }

@@ -16,6 +16,7 @@
     "@mdx-js/react": "^1.6.5",
     "@next/mdx": "^9.4.4",
     "next": "9.4.4",
+    "next-mdx-frontmatter": "^0.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-syntax-highlighter": "^12.2.1",
