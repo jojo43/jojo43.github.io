@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import { Box, Container, Toolbar } from '@material-ui/core'
 
-import { Headline } from '~/components/atoms'
+import { H1 } from '~/components/atoms'
 import { Header } from '~/components/organisms'
 import { TITLE } from '~/settings'
 
@@ -24,7 +24,7 @@ export function BlogTemplate({ children, title }: Props) {
       <Toolbar />
       <Container maxWidth="md">
         <Box my={3}>
-          {title && <Headline component="h1">{title}</Headline>}
+          {title && <H1>{title}</H1>}
           {children}
         </Box>
       </Container>
