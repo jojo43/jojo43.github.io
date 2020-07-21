@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{"/EDR":function(n,t,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/",function(){return u("23aj")}])},"23aj":function(n,t,u){"use strict";u.r(t),u.d(t,"default",(function(){return i}));var e=u("q1tI"),o=u.n(e),r=u("qaYr"),a=o.a.createElement;function i(){return a(r.a,null,"Home")}}},[["/EDR",0,2,1,3,4]]]);

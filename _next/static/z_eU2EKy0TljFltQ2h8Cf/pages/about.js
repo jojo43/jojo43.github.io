@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{TaPz:function(n,t,u){"use strict";u.r(t),u.d(t,"default",(function(){return r}));var o=u("q1tI"),e=u.n(o),a=u("qaYr"),i=e.a.createElement;function r(){return i(a.a,{title:"About"},"About")}},hIud:function(n,t,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/about",function(){return u("TaPz")}])}},[["hIud",0,2,1,3,4]]]);
